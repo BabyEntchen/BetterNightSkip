@@ -1,4 +1,4 @@
-# BetterNightSkip
+# BetterNightSkip 1.20 Paper Plugin
 
 Skip the night if one player is sleeping. Disable per command
 
