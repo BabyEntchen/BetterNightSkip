@@ -1,0 +1,9 @@
+name: BetterNightSkip
+version: '${project.version}'
+main: com.entidevelopments.betternightskip.BetterNightSkip
+api-version: !!str 1.20
+authors: [ BabyEntchen ]
+commands:
+    bns:
+        description: Skip night settings
+        usage: /bns <enable/disable>
