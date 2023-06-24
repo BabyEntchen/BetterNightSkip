@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PlayerInBedListener implements Listener, CommandExecutor {
     boolean skipAtOne = true;
+    int sleepingPlayers = 0;
 
     @EventHandler
     public void onPlayerBedEnter(PlayerBedEnterEvent event) {
@@ -27,6 +28,10 @@ public class PlayerInBedListener implements Listener, CommandExecutor {
                 Bukkit.getServer().broadcastMessage("§l[Server]§r " + player.getName() + " schläft! Es müssen alle Spieler schlafen! Ändere dies mit /bns enable");
                 return;
             }
+            sleepingPlayers++;
+            if (sleepingPlayers > 1) {
+                return;
+            }
         } else {
             return;
         }
@@ -36,6 +41,7 @@ public class PlayerInBedListener implements Listener, CommandExecutor {
                 if (player.isSleeping()) {
                     if (skipAtOne) {
                         Bukkit.getServer().getWorld("world").setTime(0);
+                        sleepingPlayers = 0;
                         Bukkit.getServer().broadcastMessage("§l[Server]§r Die Nacht wurde übersprungen!");
                     } else {
                         cancel();
