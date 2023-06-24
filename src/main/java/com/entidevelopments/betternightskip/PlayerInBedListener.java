@@ -49,6 +49,7 @@ public class PlayerInBedListener implements Listener, CommandExecutor {
                 } else {
                     if (skipAtOne) {
                         Bukkit.getServer().broadcastMessage("§l[Server]§r " + player.getName() + " ist aufgewacht! Die Nacht wird nicht übersprungen!");
+                        sleepingPlayers = 0;
                     }
                 }
             }
